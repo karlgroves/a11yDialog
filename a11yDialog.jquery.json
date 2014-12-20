@@ -1,0 +1,28 @@
+{
+    "name": "a11yDialog",
+    "title": "a11yDialog",
+    "description": "Accessible jQueryUI dialog",
+    "version": "0.1.1",
+    "homepage": "https://github.com/karlgroves/a11yDialog",
+    "author": {
+        "name": "Karl Groves",
+        "url": "https://github.com/karlgroves"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:karlgroves/a11yDialog.git"
+    },
+    "bugs": "https://github.com/karlgroves/a11yDialog/issues",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "dependencies": {
+        "jquery": "~1.11.1"
+    },
+    "keywords": [
+        "jquery-plugin", "jQueryUI", "a11y", "accessibility", "accessible"
+    ]
+}

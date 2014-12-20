@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>accessible jQueryUI dialog Test Suite</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+
+
+    <script src="../bower_components/jqueryui/jquery-ui.min.js"></script>
+    <script src="../src/a11yDialog.js"></script>
+
+    <script>window._$ = jQuery.noConflict(true);</script>
+    <script>_$(document).ready(function () {
+        _$("#dialog").dialog({
+            autoOpen: true,
+            modal: true
+        });
+
+    });</script>
+
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" media="screen">
+    <link type="text/css" rel="stylesheet" href="../bower_components/jqueryui/themes/ui-lightness/jquery-ui.min.css"/>
+
+
+</head>
+<body>
+<div id="qunit"></div>
+
+<div id="qunit-fixture"></div>
+
+<div><input type="button" name="button" id="button" value="button"/></div>
+<div><label for="checkbox">Checkbox</label><input type="checkbox" name="checkbox" id="checkbox" value="checkbox"/></div>
+<div><label for="color">Color</label><input type="color" name="color" id="color" value="color"/></div>
+<div><label for="date">Date</label><input type="date" name="date" id="date" value="date"/></div>
+<div><label for="datetime">Datetime</label><input type="datetime" name="datetime" id="datetime" value="datetime"/></div>
+<div><label for="datetime-local">Datetime-local</label><input type="datetime-local" name="datetime-local"
+                                                              id="datetime-local" value="datetime-local"/></div>
+<div><label for="email">Email</label><input type="email" name="email" id="email" value="email"/></div>
+<div><label for="file">File</label><input type="file" name="file" id="file" value="file"/></div>
+<div><label for="month">month</label><input type="month" name="month" id="month" value="month"/></div>
+<div><label for="number">number</label><input type="number" name="number" id="number" value="number"/></div>
+<div><label for="password">Password</label><input type="password" name="password" id="password" value="password"/></div>
+<div><label for="radio">Radio</label><input type="radio" name="radio" id="radio" value="radio"/></div>
+<div><label for="range"></label><input type="range" name="range" id="range" value="range"/></div>
+<div><input type="reset" name="reset" id="reset" value="reset"/></div>
+<div><label for="search">Search</label><input type="search" name="search" id="search" value="search"/></div>
+<div><input type="submit" name="submit" id="submit" value="submit"/></div>
+<div><label for="tel">Tel</label><input type="tel" name="tel" id="tel" value="tel"/></div>
+<div><label for="text">Text</label><input type="text" name="text" id="text" value="text"/></div>
+<div><label for="time">Time</label><input type="time" name="time" id="time" value="time"/></div>
+<div><label for="url">URL</label><input type="url" name="url" id="url" value="url"/></div>
+<div><label for="week">week</label><input type="week" name="week" id="week" value="week"/></div>
+<div><label for="select">Select</label><select name="select" id="select"></select></div>
+<div><label for="textarea">Textarea</label><textarea name="textarea" id="textarea"></textarea></div>
+<div>
+    <button>Button</button>
+</div>
+
+
+<div id="dialog" title="Create new user" class="dialog">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form>
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="jane@smith.com"
+                   class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="xxxxxxx"
+                   class="text ui-widget-content ui-corner-all">
+        </fieldset>
+    </form>
+    It also <a href="http://www.google.com">has a link</a>in it</p>
+</div>
+<script src="a11yDialog_test.js"></script>
+</body>
+</html>

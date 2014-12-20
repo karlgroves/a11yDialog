@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>jQueryUI accessible .dialog() demo</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jqueryui/jquery-ui.min.js"></script>
+    <script src="../src/a11yDialog.js"></script>
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/jqueryui/themes/ui-lightness/jquery-ui.min.css" />
+    <style type="text/css">
+        body{
+            padding: 3em;
+        }
+        .dialog{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<p>This is a demo of the accessible dialog.</p>
+
+<div><a href="#" id="dialog-opener">Launch Dialog (basic)</a> - This will launch a basic dialog. Since it is non-modal, none of the accessibility enhancements apply</div>
+<div><a href="#" id="animated-opener">Launch Dialog (animated)</a>- This will launch a basic dialog that is animated. Since it is non-modal, none of the accessibility enhancements apply</div>
+<div><a href="#" id="dialog-form-opener">Launch Dialog (Form container) </a> - this will launch a dialog with a form in it. It is modal and receives all of our accessibility stuff  </div>
+<div><a href="#" id="message-opener">Launch Dialog (message)</a>  - this will launch a text dialog. It is modal and receives all of our accessibility stuff  </div>
+
+<div><input type="button" name="button" id="button" value="button" /></div>
+<div><label for="checkbox">Checkbox</label><input type="checkbox" name="checkbox" id="checkbox" value="checkbox" /></div>
+<div><label for="color">Color</label><input type="color" name="color" id="color" value="color" /></div>
+<div><label for="date">Date</label><input type="date" name="date" id="date" value="date" /></div>
+<div><label for="datetime">Datetime</label><input type="datetime" name="datetime" id="datetime" value="datetime" /></div>
+<div><label for="datetime-local">Datetime-local</label><input type="datetime-local" name="datetime-local" id="datetime-local" value="datetime-local" /></div>
+<div><label for="email">Email</label><input type="email" name="email" id="email" value="email" /></div>
+<div><label for="file">File</label><input type="file" name="file" id="file" value="file" /></div>
+<div><label for="month">month</label><input type="month" name="month" id="month" value="month" /></div>
+<div><label for="number">number</label><input type="number" name="number" id="number" value="number" /></div>
+<div><label for="password">Password</label><input type="password" name="password" id="password" value="password" /></div>
+<div><label for="radio">Radio</label><input type="radio" name="radio" id="radio" value="radio" /></div>
+<div><label for="range"></label><input type="range" name="range" id="range" value="range" /></div>
+<div><input type="reset" name="reset" id="reset" value="reset" /></div>
+<div><label for="search">Search</label><input type="search" name="search" id="search" value="search" /></div>
+<div><input type="submit" name="submit" id="submit" value="submit" /></div>
+<div><label for="tel">Tel</label><input type="tel" name="tel" id="tel" value="tel" /></div>
+<div><label for="text">Text</label><input type="text" name="text" id="text" value="text" /></div>
+<div><label for="time">Time</label><input type="time" name="time" id="time" value="time" /></div>
+<div><label for="url">URL</label><input type="url" name="url" id="url" value="url" /></div>
+<div><label for="week">week</label><input type="week" name="week" id="week" value="week" /></div>
+<div><label for="select">Select</label><select name="select" id="select"></select></div>
+<div><label for="textarea">Textarea</label><textarea name="textarea" id="textarea"></textarea></div>
+<div><button>Button</button></div>
+
+
+
+
+
+<div id="dialog" title="Basic dialog" class="dialog">
+    <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+    It also <a href="http://www.google.com">has a link</a>in it</p>
+</div>
+
+<div id="dialog-message" title="Download complete" class="dialog">
+    <p>
+        <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+        Your files have downloaded successfully into the My Downloads folder.
+    </p>
+    <p>
+        Currently using <b>36% of your storage space</b>.
+    </p>
+</div>
+
+<div id="dialog-form" title="Create new user" class="dialog">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form>
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+
+<div id="animated-dialog" title="Basic dialog" class="dialog">
+    <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+
+
+<script>
+    $(function() {
+        $( "#dialog-opener" ).click(function() {
+            $( "#dialog" ).dialog();
+        });
+
+        $( "#animated-dialog" ).dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+
+        $( "#animated-opener" ).click(function() {
+            $( "#animated-dialog" ).dialog( "open" );
+        });
+
+        $( "#dialog-form" ).dialog({
+            autoOpen: false,
+            height: 300,
+            width: 350,
+            modal: true
+        });
+
+        $( "#dialog-form-opener" ).click(function() {
+            $( "#dialog-form" ).dialog( "open" );
+        });
+
+
+        $( "#dialog-message" ).dialog({
+            autoOpen: false,
+            modal: true
+        });
+
+        $( "#message-opener" ).click(function() {
+            $( "#dialog-message" ).dialog( "open" );
+        });
+
+    });
+</script>
+</body>
+</html>
