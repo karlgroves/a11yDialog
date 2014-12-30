@@ -11,6 +11,12 @@ Download the [production version][min] or the [development version][max].
 [min]: https://raw.github.com/karlgroves/a11yDialog/master/dist/a11yDialog.min.js
 [max]: https://raw.github.com/karlgroves/a11yDialog/master/dist/a11yDialog.js
 
+You can install this with Bower:
+
+```
+bower install a11y-dialog --save
+```
+
 In your web page:
 
 ```html
