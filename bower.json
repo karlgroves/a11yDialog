@@ -1,7 +1,11 @@
 {
   "name": "a11yDialog",
   "version": "0.0.1",
-  "dependencies": {},
+  "main": "dist/a11yDialog.min.js",
+  "dependencies": {
+      "jquery": "~2.1.2",
+      "jqueryui": "~1.11.2"
+  },
   "devDependencies": {
     "jquery": "~2.1.2",
     "jqueryui": "~1.11.2",
