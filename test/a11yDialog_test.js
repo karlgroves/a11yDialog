@@ -36,4 +36,10 @@
     QUnit.test('Invisible stuff SHOULD NOT be affected by the dialog accessibility enhancements', function () {
         equal(0, _$('.a11y-ui-dialog-open').children('.ui-dialog-hidden-by-modal').length);
     });
+
+    QUnit.test('The dialog must have alertdialog role', function () {
+        var tehDialogRole = _$('.a11y-ui-dialog-open').attr('role');
+        equal('alertdialog', tehDialogRole);
+    });
+
 }(jQuery));
