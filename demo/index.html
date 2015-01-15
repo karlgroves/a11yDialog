@@ -23,7 +23,7 @@
 <div><a href="#" id="dialog-opener">Launch Dialog (basic)</a> - This will launch a basic dialog. Since it is non-modal, none of the accessibility enhancements apply</div>
 <div><a href="#" id="animated-opener">Launch Dialog (animated)</a>- This will launch a basic dialog that is animated. Since it is non-modal, none of the accessibility enhancements apply</div>
 <div><a href="#" id="dialog-form-opener">Launch Dialog (Form container) </a> - this will launch a dialog with a form in it. It is modal and receives all of our accessibility stuff  </div>
-<div><a href="#" id="message-opener">Launch Dialog (message)</a>  - this will launch a text dialog. It is modal and receives all of our accessibility stuff  </div>
+<div><a href="#" id="message-opener">Launch Dialog (message)</a>  - this will launch a text dialog. It is modal and receives all of our accessibility stuff. It also has a custom role.  </div>
 
 <div><input type="button" name="button" id="button" value="button" /></div>
 <div><label for="checkbox">Checkbox</label><input type="checkbox" name="checkbox" id="checkbox" value="checkbox" /></div>
@@ -129,7 +129,8 @@
 
         $( "#dialog-message" ).dialog({
             autoOpen: false,
-            modal: true
+            modal: true,
+            role: 'alertdialog'
         });
 
         $( "#message-opener" ).click(function() {
