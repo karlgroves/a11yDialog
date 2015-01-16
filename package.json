@@ -1,6 +1,6 @@
 {
   "name": "a11yDialog",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "accesibility enhancements for jQueryUI dialog()",
   "keywords": [
     "jquery-plugin"
