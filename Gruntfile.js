@@ -97,7 +97,7 @@ module.exports = function (grunt) {
     });
 
     // Default task.
-    grunt.registerTask('default', ['jshint', 'clean', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'travis-lint', 'clean', 'uglify']);
     grunt.registerTask('server', ['connect:test', 'watch']);
     grunt.registerTask('test', ['connect:test', 'qunit']);
 };
