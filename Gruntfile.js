@@ -74,18 +74,30 @@ module.exports = function (grunt) {
                 tasks: ['jshint:test', 'qunit']
             }
         },
+
+
         connect: {
-            server: {
+            test: {
                 options: {
                     hostname: '*',
                     port: 9000
+                }
+            },
+            demo: {
+                options: {
+                    protocol: 'http',
+                    port: 9000,
+                    hostname: '*',
+                    base: 'demo',
+                    directory: 'demo',
+                    keepalive: true
                 }
             }
         }
     });
 
     // Default task.
-    grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'uglify']);
-    grunt.registerTask('server', ['connect', 'watch']);
-    grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+    grunt.registerTask('default', ['jshint', 'clean', 'uglify']);
+    grunt.registerTask('server', ['connect:test', 'watch']);
+    grunt.registerTask('test', ['connect:test', 'qunit']);
 };
